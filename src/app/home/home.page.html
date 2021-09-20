@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
+
+
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
   </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+    <div class="ion-text-center"><img alt="logo" height="150" style="margin-top: 2%;"  src="../../assets/img/logo.webp" >
+   </div>
+   <h2 class="ion-text-center">Welcome To ShreddersBay</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-padding">
+    <ion-button expand="block" class="fb" (click) ="facebookLogin(role)">
+      <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+      Continue with Facebook
+    </ion-button>
   </div>
+  <div class="ion-padding">
+    <ion-button expand="block" class="google" (click) ="googleLogin(role)">
+      <ion-icon name="logo-google" color="danger" ></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Continue with Google
+    </ion-button>
+  </div>
+  <div class="ion-padding">
+  <ion-button expand="block" class="logins" (click) ="login(role)">Login</ion-button>
+</div>
 </ion-content>
+<ion-footer>
+<div class="ion-text-center" style="background-color: black;color:white;">
+  Don't have an account?<br/>
+  <ion-button (click) ="signup(role)">Sing Up</ion-button>
+</div>
+</ion-footer>
