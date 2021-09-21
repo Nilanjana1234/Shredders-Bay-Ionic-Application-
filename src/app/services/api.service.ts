@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 const baseUrl = 'http://localhost:3000/users';
 const customerURL = 'http://localhost:3000/customers';
 const dealerURL = 'http://localhost:3000/dealers';
+const productsURL = 'http://localhost:3000/products';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class APIService {
 
   getAll(){
     return this.http.get(baseUrl);
+  }
+
+  getProducts(){
+    return this.http.get(productsURL);
   }
 
   getbyId(id: any){

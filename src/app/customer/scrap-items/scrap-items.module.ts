@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { StatePageRoutingModule } from './state-routing.module';
+import { ScrapItemsPageRoutingModule } from './scrap-items-routing.module';
 
-import { StatePage } from './state.page';
+import { ScrapItemsPage } from './scrap-items.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StatePageRoutingModule
+    ScrapItemsPageRoutingModule
   ],
-  declarations: [StatePage]
+  declarations: [ScrapItemsPage]
 })
-export class StatePageModule {}
+export class ScrapItemsPageModule {}

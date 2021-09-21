@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <h2>Available Scrap Types</h2>
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of list">
+        <div>
+          {{item.p_name}}
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-button class="primary" shape="round">View More<ion-icon name="arrow-down"></ion-icon></ion-button>
+  </ion-grid>
+
+ <!-- List of My Bookings -->
+<ion-list>
+  <h2>Available Bookings</h2>
+  <ion-button color="light" shape="round">View All</ion-button>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="../../assets/img/a.png">
+    </ion-avatar>
+    <ion-label>
+      <h3 color="primary">Booking Id : 4578615</h3>
+      <p>Priyanka Kapadiya</p>
+      <p><ion-icon name="pin"></ion-icon>1st Stage, BTM Layout</p>
+    </ion-label>
+  </ion-item>
+  <ion-button fill="clear"><ion-icon name="close" color="danger" end></ion-icon>Ignore</ion-button>
+  <ion-button fill="clear"><ion-icon name="checkmark" color="success" end></ion-icon>Accept</ion-button>
+  </ion-list>
+</ion-content>

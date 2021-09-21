@@ -40,6 +40,18 @@ exports.findAll = (req, res) => {
   });
 };
 
+// Retrieve all Products from the database.
+exports.findProducts = (req, res) => {
+  User.getProducts((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving users."
+      });
+    else res.send(data);
+  });
+};
+
 // Retrieve all Customer from the database.
 exports.allCustomer = (req, res) => {
   User.findCustomer((err, data) => {

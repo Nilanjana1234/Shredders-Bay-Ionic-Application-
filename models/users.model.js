@@ -36,6 +36,19 @@ User.getAll = (result) => {
   });
 };
 
+User.getProducts = (result) => {
+  sql.query("SELECT * FROM products", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("products: ", res);
+    result(null, res);
+  });
+};
+
 User.findById = (userId, result) => {
   sql.query(`SELECT * FROM users WHERE id = ${userId}`, (err, res) => {
     if (err) {

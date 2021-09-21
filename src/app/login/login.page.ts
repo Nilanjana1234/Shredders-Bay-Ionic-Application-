@@ -33,17 +33,27 @@ export class LoginPage implements OnInit {
     if (!this.loginForm.valid) {
       return false;
     } else {
+      alert('hello');
       this.apiService.getbyEmail(this.loginForm.value.email).toPromise().then((res) => {
+        alert('hello');
           console.log(this.loginForm.value);
+          console.log(res);
           this.data=res;
           console.log(this.data.password);
             if(this.data.password===this.loginForm.value.password)
             {
               alert('Login Successfully');
-              this.loginForm.reset();
-              sessionStorage.setItem('userDetails', JSON.stringify(this.data));
-              if(this.data.userRole === 1 && this.role === 1){
+              if(this.role === 1 && this.data.userRole === 1){
+                alert('Login Successfully');
+                this.loginForm.reset();
+                sessionStorage.setItem('userDetails', JSON.stringify(this.data));
                 this.router.navigate(['dealer']);
+              }
+              if(this.role === 0 || this.data.userRole === 0){
+                alert('Login Successfully');
+                this.loginForm.reset();
+                sessionStorage.setItem('userDetails', JSON.stringify(this.data));
+                this.router.navigate(['customer']);
               }
             }
             else{
