@@ -41,9 +41,9 @@ export class LoginPage implements OnInit {
           console.log(this.data.password);
             if(this.data.password === this.loginForm.value.password )
             {
-              if(this.data.userRole=== 0 && this.role===0){
+              if(this.data.userRole=== 0 || this.role===0){
               sessionStorage.setItem('userDetails', JSON.stringify(this.data));
-              this.router.navigate(['customer',{role}]);
+              this.router.navigate(['customer']);
               this.loginForm.reset();
 
               }

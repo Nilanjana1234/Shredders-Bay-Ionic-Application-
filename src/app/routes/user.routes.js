@@ -14,14 +14,17 @@ module.exports = app => {
   // Retrieve a single User with userEmail
   app.get("/users/email/:userEmail", users.findbyEmail);
 
-   // Retrieve a All Customers
-   app.get("/customers", users.allCustomer);
+  // Retrieve a All Customers
+  app.get("/customers", users.allCustomer);
 
-   // Retrieve a All Dealers
-   app.get("/dealers", users.allDealer);
+  // Retrieve a All Dealers
+  app.get("/dealers", users.allDealer);
 
   // Update a Customer with customerId
   app.put("/users/:userId", users.update);
+
+  // Update a Customer Password with customerId
+  app.put("/users/updatePass/:userId", users.updatePass);
 
   // Delete a User with customerId
   app.delete("/users/:userId", users.delete);
@@ -38,5 +41,19 @@ module.exports = app => {
   app.put("/users/activate/:userId", users.activeUser);
 
   app.put("/users/inactivate/:userId", users.inActiveUser);
+  // Retrieve all Products
+  app.get("/products", users.findProducts);
 
+
+  // Retrieve all FAQs
+  app.get("/faqs", users.findFaqs);
+  // Retrieve all Notification
+  app.get("/notifications", users.findNotifications);
+
+
+   // Retrieve all Address
+   app.get("/address", users.findAdress);
+
+   // Retrieve all getTermsConditions
+   app.get("/terms-conditions", users.findTermsConditions);
 };

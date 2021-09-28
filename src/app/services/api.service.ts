@@ -6,6 +6,14 @@ import * as XLSX from 'xlsx';
 const baseUrl = 'http://localhost:3000/users';
 const customerUrl = 'http://localhost:3000/customers';
 const dealerUrl = 'http://localhost:3000/dealers';
+const productsURL = 'http://localhost:3000/products';
+const faqsURL = 'http://localhost:3000/faqs';
+const notificationsURL= 'http://localhost:3000/notifications';
+const termsConditionsURL= 'http://localhost:3000/terms-conditions';
+const addressURL= 'http://localhost:3000/address';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,8 +38,12 @@ export class APIService {
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}/${id}`, data);
+    return this.http.put(`${baseUrl}/${id}`, data);
   }
+  updatePass(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/updatePass/${id}`, data);
+  }
+
 
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
@@ -55,5 +67,21 @@ export class APIService {
     }
     filterItems(data,searchTerm) {
       return data.data.filter(item => item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+    }
+    getProducts(){
+      return this.http.get(productsURL);
+    }
+
+    getFaqs(){
+      return this.http.get(faqsURL);
+    }
+    getNotifications(){
+      return this.http.get(notificationsURL);
+    }
+    getAddress(){
+      return this.http.get(addressURL);
+    }
+    getTermsConditions(){
+      return this.http.get(termsConditionsURL);
     }
 }

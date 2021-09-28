@@ -124,6 +124,29 @@ User.updateById = (id, user, result) => {
   );
 };
 
+User.updatePass = (id, user, result) => {
+  sql.query(
+    "UPDATE users SET password = ? WHERE id = ?",
+    [user.password, id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found User with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated user: ", { id: id, ...user });
+      result(null, { id: id, ...user });
+    }
+  );
+};
+
 User.activeUser = (id, result) => {
   sql.query(
     `UPDATE users SET status = 1 WHERE id = ${id}`,
@@ -200,5 +223,75 @@ User.removeAll = result => {
     result(null, res);
   });
 };
+
+User.getProducts = (result) => {
+  sql.query("SELECT * FROM products", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("products: ", res);
+    result(null, res);
+  });
+};
+
+
+User.getFaqs = (result) => {
+  sql.query("SELECT * FROM faqs", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("faq: ", res);
+    result(null, res);
+  });
+};
+
+
+User.getNotifications = (result) => {
+  sql.query("SELECT * FROM notifications", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("notifications: ", res);
+    result(null, res);
+  });
+};
+
+
+User.getAddress = (result) => {
+  sql.query("SELECT * FROM address", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("notifications: ", res);
+    result(null, res);
+  });
+};
+
+
+User.getTermsConditions = (result) => {
+  sql.query("SELECT * FROM terms_conditions", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("notifications: ", res);
+    result(null, res);
+  });
+};
+
 
 module.exports = User;

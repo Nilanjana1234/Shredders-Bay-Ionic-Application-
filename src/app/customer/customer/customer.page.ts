@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavParams } from '@ionic/angular';
-import { APIService } from '../services/api.service';
+import { APIService } from '../../services/api.service';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.page.html',
@@ -12,13 +12,27 @@ import { APIService } from '../services/api.service';
 })
 export class CustomerPage implements OnInit {
   role: any;
+  data: any;
+  list: any;
 
-  constructor(  private apiService: APIService,
+  constructor(
+    private apiService: APIService,
     private router: Router,
     private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.role = this.activateRoute.snapshot.params.role;
+    this.getProducts();
+
+  }
+  getProducts(){
+
+    this.apiService.getProducts().toPromise().then((res) => {
+      console.log(res);
+      this.data=res;
+      this.list=this.data.slice(0,9);
+    }).catch((err)=> {
+      console.log('Error' + err);
+    });
 
   }
 

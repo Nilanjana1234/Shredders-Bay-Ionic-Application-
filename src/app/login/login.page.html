@@ -1,12 +1,12 @@
 <ion-buttons slot="start">
   <ion-back-button></ion-back-button>
-  <ion-title class="ion-text-center">login {{ role }} </ion-title>
-
+  <!-- <ion-title class="ion-text-center">Login</ion-title> -->
 </ion-buttons>
 <ion-content>
 
   <div class="ion-text-center"><img alt="logo" height="150" style="margin-top: 2%;"  src="../../assets/img/logo.webp" >
 </div>
+<h6>Role- {{ role }} </h6>
   <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>
@@ -18,7 +18,7 @@
 </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="primary" expand="block">Login{{ role }}</ion-button>
+        <ion-button type="submit" color="primary" expand="block">Login</ion-button>
       </ion-col>
     </ion-row>
   </form>

@@ -125,6 +125,36 @@ exports.update = (req, res) => {
   );
 };
 
+
+// Update a User password by the userId in the request
+exports.updatePass = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  User.updatePass(
+    req.params.userId,
+    new User(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `Not found User with id ${req.params.userId}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "Error updating User with id " + req.params.userId
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
 // Activate a User identified by the userId in the request
 exports.activeUser = (req, res) => {
   // Validate Request
@@ -219,4 +249,65 @@ exports.dealerBoard = (req, res) => {
 
 exports.customerBoard = (req, res) => {
   res.status(200).send("Customer Content.");
+};
+// Retrieve all Products from the database.
+exports.findProducts = (req, res) => {
+  User.getProducts((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving users."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all FAQs from the database.
+exports.findFaqs = (req, res) => {
+  User.getFaqs((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving FAQs."
+      });
+    else res.send(data);
+  });
+};
+
+
+// Retrieve all Address from the database.
+exports.findAdress = (req, res) => {
+  User.getAddress((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Address."
+      });
+    else res.send(data);
+  });
+};
+
+
+// Retrieve all Notifications from the database.
+exports.findNotifications = (req, res) => {
+  User.getNotifications((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Notifications."
+      });
+    else res.send(data);
+  });
+};
+
+// Retrieve all getTermsConditions from the database.
+exports.findTermsConditions = (req, res) => {
+  User.getTermsConditions((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving TermsConditions."
+      });
+    else res.send(data);
+  });
 };
