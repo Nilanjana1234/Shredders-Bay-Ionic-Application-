@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APIService } from '../../services/api.service';
-import { EmailComposer } from '@ionic-native/email-composer/ngx';
+// import { EmailComposer } from '@ionic-native/email-composer/ngx';
 // import { SMS } from '@ionic-native/sms/ngx';
 
 @Component({
@@ -21,7 +21,7 @@ export class ForgetPasswordPage implements OnInit {
     private router: Router,
     public fb: FormBuilder,
     private activateRoute: ActivatedRoute,
-    private emailComposer: EmailComposer,
+    // private emailComposer: EmailComposer,
     // private sms: SMS
   ) { }
 
@@ -34,8 +34,7 @@ export class ForgetPasswordPage implements OnInit {
     this.forgetPassForm = this.fb.group({
       oldPass: ['']
     });
-    this.sendEmail();
-  }
+}
 
   submitForm() {
     //this.sms.send('7266833037', 'Hello world!');
@@ -53,7 +52,7 @@ export class ForgetPasswordPage implements OnInit {
 
   }
   }
-  sendEmail(){
+ /* sendEmail(){
     this.email = {
       to: 'kamana4499@gmail.com',
       cc: 'nilanjana3798@gmail.com',
@@ -73,5 +72,5 @@ export class ForgetPasswordPage implements OnInit {
   }
 
 
-
+*/
 }

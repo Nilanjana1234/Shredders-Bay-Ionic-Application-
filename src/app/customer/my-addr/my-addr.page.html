@@ -13,13 +13,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list (ionChange)="address()">
     <ion-radio-group>
     <ion-item *ngFor="let item of data">
+
       <ion-label>
         HOME<br/>{{ name }} <br/> {{ item.address }}
       </ion-label>
-      <ion-radio ></ion-radio>
+      <ion-radio></ion-radio>
       <ion-buttons slot="end">
         <ion-icon name="pencil"></ion-icon>
       <ion-icon name="trash"></ion-icon>

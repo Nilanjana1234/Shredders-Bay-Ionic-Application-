@@ -147,9 +147,9 @@ User.updatePass = (id, user, result) => {
   );
 };
 
-User.activeUser = (id, result) => {
+User.activeUser = (id, status, result) => {
   sql.query(
-    `UPDATE users SET status = 1 WHERE id = ${id}`,
+    `UPDATE address SET status = ${status}  WHERE id = ${id}`,
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -171,7 +171,7 @@ User.activeUser = (id, result) => {
 
 User.inActiveUser = (id, result) => {
   sql.query(
-    `UPDATE users SET status = 0 WHERE id = ${id}`,
+    `UPDATE address SET status = 0 WHERE id = ${id}`,
     (err, res) => {
       if (err) {
         console.log("error: ", err);

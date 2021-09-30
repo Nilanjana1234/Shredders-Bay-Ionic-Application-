@@ -44,5 +44,4 @@ export class SignupPage implements OnInit {
       });
     }
   }
-
 }

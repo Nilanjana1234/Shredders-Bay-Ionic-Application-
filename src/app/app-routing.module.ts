@@ -122,6 +122,10 @@ const routes: Routes = [
   {
     path: 'forget-password',
     loadChildren: () => import('./customer/forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
+  {
+    path: 'add-address',
+    loadChildren: () => import('./customer/add-address/add-address.module').then( m => m.AddAddressPageModule)
   }
 ];
 @NgModule({

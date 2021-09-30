@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as XLSX from 'xlsx';
 
-const baseUrl = 'http://localhost:3000/users';
+const baseUrl = 'http://localhost:3000';
 const customerUrl = 'http://localhost:3000/customers';
 const dealerUrl = 'http://localhost:3000/dealers';
 const productsURL = 'http://localhost:3000/products';
@@ -27,35 +27,39 @@ export class APIService {
   }
 
   getbyId(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/users/${id}`);
   }
 
   getbyEmail(email: any): Observable<any> {
-    return this.http.get(`${baseUrl}/email/${email}`);
+    return this.http.get(`${baseUrl}/users/email/${email}`);
   }
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.http.post(`${baseUrl}/users`, data);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.put(`${baseUrl}/users/${id}`, data);
   }
   updatePass(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/updatePass/${id}`, data);
+    return this.http.put(`${baseUrl}/users/updatePass/${id}`, data);
   }
 
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrl}/users/${id}`);
   }
   getCustomers(): Observable<any> {
-    return this.http.get(`${customerUrl}`);
+    return this.http.get(`${customerUrl}/users`);
   }
   getDealer(): Observable<any> {
-    return this.http.get(`${dealerUrl}`);
+    return this.http.get(`${dealerUrl}/users`);
   }
   inActivateUser(id,status): Observable<any> {
-    return this.http.patch(`${baseUrl}/inactivate/${id}`,status);
+    return this.http.patch(`${baseUrl}/users/inactivate/${id}`,status);
+  }
+  activateUser(id,status): Observable<any> {
+    //console.log(id,status);
+    return this.http.put(`${baseUrl}/users/inactivate/${id}`,status);
   }
   async exportToExcel(data, filename) {
     {
@@ -83,5 +87,16 @@ export class APIService {
     }
     getTermsConditions(){
       return this.http.get(termsConditionsURL);
+    }
+    createAdd(data: any): Observable<any> {
+      return this.http.post(`${baseUrl}/address`, data);
+    }
+
+    inActivateAdd(id,status): Observable<any> {
+      return this.http.put(`${baseUrl}/inactivate/${id}`,status);
+    }
+    activateAdd(id,status): Observable<any> {
+      //console.log(id,status);
+      return this.http.put(`${baseUrl}/activeAddress/${id}`,status);
     }
 }

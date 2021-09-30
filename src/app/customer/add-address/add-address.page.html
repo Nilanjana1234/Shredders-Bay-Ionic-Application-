@@ -1,0 +1,45 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+<div class="ion-text-center"><img alt="logo" height="150" style="margin-top: 2%;"  src="../../assets/img/logo.webp" >
+</div>
+<br/><br/><ion-title class="ion-text-center">Add Address</ion-title>
+
+<form [formGroup]="addressForm" (ngSubmit) = "submitForm()">
+
+  <ion-item lines="full" >
+    <ion-label position="floating">Address</ion-label>
+    <ion-input type="text" formControlName="address" placeholder="Enter your full address" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">City</ion-label>
+    <ion-input type="text" formControlName="city" placeholder="Enter Your City" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">
+        District
+    </ion-label>
+    <ion-input type="text" formControlName="district" placeholder="Enter your district" required></ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">State</ion-label>
+    <ion-input type="text" formControlName="state" placeholder="Enter your state" required></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Pin Code</ion-label>
+    <ion-input type="number" formControlName="pinCode" placeholder="Enter your pin code"  required></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>

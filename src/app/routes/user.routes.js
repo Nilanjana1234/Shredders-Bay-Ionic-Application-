@@ -38,7 +38,9 @@ module.exports = app => {
 
   app.get("/users/customer", [authJwt.verifyToken, authJwt.isCustomer], users.customerBoard);
 
-  app.put("/users/activate/:userId", users.activeUser);
+  app.put("/users/activate/:userId", function(req, res){
+    users.activateUser
+  });
 
   app.put("/users/inactivate/:userId", users.inActiveUser);
   // Retrieve all Products

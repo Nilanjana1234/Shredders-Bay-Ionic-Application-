@@ -26,7 +26,6 @@
     "@capacitor/haptics": "1.1.0",
     "@capacitor/keyboard": "1.1.0",
     "@capacitor/status-bar": "1.0.3",
-    "@ionic-native/email-composer": "^5.36.0",
     "@ionic-native/google-plus": "^5.36.0",
     "@ionic-native/sms": "^4.20.0",
     "@ionic/angular": "^5.5.2",
@@ -50,7 +49,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.1.1",
+    "@angular-devkit/build-angular": "^12.1.4",
     "@angular-eslint/builder": "~12.0.0",
     "@angular-eslint/eslint-plugin": "~12.0.0",
     "@angular-eslint/eslint-plugin-template": "~12.0.0",
@@ -86,7 +85,9 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "typescript": "~4.2.4"
+    "typescript": "~4.2.4",
+    "webpack": "^5.55.1",
+    "webpack-dev-server": "^4.3.0"
   },
   "description": "An Ionic project",
   "main": "karma.conf.js",
@@ -109,5 +110,12 @@
     "platforms": [
       "android"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nilanjana1234/Shredders-Bay-Ionic-Application-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nilanjana1234/Shredders-Bay-Ionic-Application-/issues"
   }
 }
