@@ -10,19 +10,22 @@ export class CustomerPage implements OnInit {
   data: any;
   list: any;
   userDetails: any;
+  userName: any;
+
+
 
   constructor(private apiService: APIService) { }
 
   ngOnInit() {
-    this.userDetails = localStorage.getItem('userDetails');
-    alert(this.userDetails);
+    this.userDetails =JSON.parse(localStorage.getItem('userDetails'));
+    this.userName=this.userDetails.name;
     this.getProducts();
   }
 
   getProducts(){
 
     this.apiService.getProducts().toPromise().then((res) => {
-      console.log(res);
+      //console.log(res);
       this.data=res;
       this.list=this.data.slice(0,9);
     }).catch((err)=> {

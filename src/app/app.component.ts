@@ -26,6 +26,7 @@ export class AppComponent {
     { title: 'My Cart', url: 'my-cart', icon: 'cart' },
     { title: 'My Account', url: 'my-account', icon: 'person' },
   ];
+
   constructor(
   ) {}
 }

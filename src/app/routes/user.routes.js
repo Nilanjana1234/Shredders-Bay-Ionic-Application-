@@ -5,11 +5,15 @@ module.exports = app => {
   // Create a new Customer
   app.post("/users", users.create);
 
+
   // Retrieve all Users
   app.get("/users", users.findAll);
 
  // Retrieve all Products
  app.get("/products", users.findProducts);
+
+ // Retrieve a single product with P_Id
+ app.get("/getOneProduct/:P_Id", users.findOneProduct);
 
   // Retrieve a single User with userId
   app.get("/users/:userId", users.findOne);

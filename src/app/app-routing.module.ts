@@ -63,34 +63,38 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/app/customer/customer',
+        redirectTo: 'customer',
         pathMatch: 'full'
       }
       ,
       {
         path: 'my-booking',
-        redirectTo: '/app/customer/my-booking',
+        redirectTo: 'my-booking',
         pathMatch: 'full'
       }
       ,
       {
         path: 'my-cart',
-        redirectTo: '/app/customer/my-cart',
+        redirectTo: 'my-cart',
         pathMatch: 'full'
       }
       ,
       {
         path: 'my-account',
-        redirectTo: '/app/customer/my-account',
+        redirectTo: 'my-account',
         pathMatch: 'full'
       }
       ,
       {
         path: 'scrap-items',
-        redirectTo: '/app/customer/my-account',
+        redirectTo: 'scrap-items',
         pathMatch: 'full'
       }
-    ]
+  ]
+},
+  {
+    path: 'booking-details',
+    loadChildren: () => import('./customer/booking-details/booking-details.module').then( m => m.BookingDetailsPageModule)
   }
 ];
 

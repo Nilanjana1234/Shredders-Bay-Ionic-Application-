@@ -20,13 +20,36 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
-
-  <ion-tabs slot="bottom">
-    <ion-tab-bar>
-      <ion-tab-button tab="{{t.url}}" *ngFor="let t of tabs;">
-        <ion-icon name="{{t.icon}}"></ion-icon>
-        <ion-label>{{t.title}}</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 </ion-app>
+
+
+<ion-app>
+  <ion-tabs slot="bottom">
+   <ion-tab-bar>
+     <ion-tab-button tab="{{t.url}}" *ngFor="let t of tabs;">
+       <ion-icon name="{{t.icon}}"></ion-icon>
+       <ion-label>{{t.title}}</ion-label>
+     </ion-tab-button>
+   </ion-tab-bar>
+ </ion-tabs>
+</ion-app>
+
+<!-- <ion-app>
+  <ion-menu slot="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Cart</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines ="none" routerLink="/home">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Cart</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+</ion-app> -->

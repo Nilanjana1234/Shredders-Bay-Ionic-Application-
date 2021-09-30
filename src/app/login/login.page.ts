@@ -13,6 +13,8 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   data: any;
   role: any;
+  errorMsg: string;
+  successMsg: string;
 
 
   constructor(
@@ -33,37 +35,34 @@ export class LoginPage implements OnInit {
     if (!this.loginForm.valid) {
       return false;
     } else {
-      alert('hello');
       this.apiService.getbyEmail(this.loginForm.value.email).toPromise().then((res) => {
-        alert('hello');
-          console.log(this.loginForm.value);
-          console.log(res);
           this.data=res;
-          console.log(this.data.password);
             if(this.data.password===this.loginForm.value.password)
             {
-              alert('Login Successfully');
               if(this.role === 1 && this.data.userRole === 1){
-                alert('Login Successfully');
+                this.successMsg='Login Successfully';
+                this.errorMsg = '';
                 this.loginForm.reset();
-                sessionStorage.setItem('userDetails', JSON.stringify(this.data));
+                localStorage.setItem('userDetails', JSON.stringify(this.data));
                 this.router.navigate(['dealer']);
               }
               if(this.role === 0 || this.data.userRole === 0){
-                alert('Login Successfully');
+                this.successMsg='Login Successfully';
+                this.errorMsg = '';
                 this.loginForm.reset();
-                sessionStorage.setItem('userDetails', JSON.stringify(this.data));
+                localStorage.setItem('userDetails', JSON.stringify(this.data));
                 this.router.navigate(['customer']);
               }
             }
             else{
-              alert('Invalid Id Or Password');
+              this.errorMsg='Invalid Id Or Password';
+              this.successMsg = '';
               this.loginForm.reset();
             }
       }).catch(err=> {
         // this.errorMsg = error.message;
-        // this.successMsg = "";
-        alert('User Not Exist');
+        this.errorMsg='User Not Exist';
+        this.successMsg = '';
         console.log(err.message);
         this.loginForm.reset();
         });

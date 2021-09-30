@@ -28,6 +28,7 @@ exports.create = (req, res) => {
   });
 };
 
+
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
   User.getAll((err, data) => {
@@ -73,6 +74,23 @@ exports.allDealer = (req, res) => {
           err.message || "Some error occurred while retrieving Customers."
       });
     else res.send(data);
+  });
+};
+
+// Find a single User with a userId
+exports.findOneProduct = (req, res) => {
+  User.findByPID(req.params.P_Id, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found Product with id ${req.params.P_Id}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving Product with id " + req.params.P_Id
+        });
+      }
+    } else res.send(data);
   });
 };
 
