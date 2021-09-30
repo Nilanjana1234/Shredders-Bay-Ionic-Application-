@@ -51,7 +51,7 @@ exports.activeAddress = (req, res) => {
   }
   Address.activeAddress(
     req.params.userId,
-    new User(req.body),
+    new Address(req.body),
     (err, data) => {
       if (err) {
         if (err.kind === "not_found") {

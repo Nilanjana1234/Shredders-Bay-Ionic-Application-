@@ -45,8 +45,9 @@ export class MyAddrPage implements OnInit {
   });
 
 }
-address(){
-  this.apiService.activateAdd(this.id,this.status).toPromise().then((res) => {
+address(ids){
+  alert(ids);
+  this.apiService.activateAdd(ids,this.status).toPromise().then((res) => {
     this.data = res;
     console.log(this.data);
   }).catch((err) => {

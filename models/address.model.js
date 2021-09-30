@@ -38,7 +38,8 @@ Address.getAddress = (result) => {
 
 
 Address.activeAddress = (id, status, result) => {
-  sql.query(`UPDATE address SET status = ${status}  WHERE id = ${id}`,
+  let st=status.status;
+  sql.query(`UPDATE address SET status = '${st}'  WHERE id = ${id}`,
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -52,8 +53,8 @@ Address.activeAddress = (id, status, result) => {
         return;
       }
 
-      console.log("updated address: ", { id: id, ...user });
-      result(null, { id: id, ...user });
+      console.log("updated address: ", { id: id, ...st });
+      result(null, { id: id, ...st });
     }
   );
 };
