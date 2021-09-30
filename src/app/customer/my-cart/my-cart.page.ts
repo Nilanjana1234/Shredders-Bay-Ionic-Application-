@@ -90,9 +90,9 @@ export class MyCartPage implements OnInit {
     });
   }
 
-  // plus(){
-  //   this.router.navigate(['scrap-items']);
-  // }
+  plus(){
+    this.router.navigate(['scrap-items']);
+  }
 
   openMenu() {
     this.menu.enable(true, 'custom');
