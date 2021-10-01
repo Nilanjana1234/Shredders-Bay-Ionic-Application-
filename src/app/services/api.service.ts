@@ -56,4 +56,34 @@ export class APIService {
     filterItems(data,searchTerm) {
       return data.data.filter(item => item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
     }
+	
+	getProducts(){
+    return this.http.get(`${baseUrl}/products`);
+	}
+	
+	 getProductByPID(id: any){
+    return this.http.get(`${baseUrl}/getOneProduct/${id}`);
+	}
+	
+	createCart(data: any){
+    //console.log(data);
+     return this.http.post(`${baseUrl}/createCart`, data);
+   }
+   
+   getCartById(id: any){
+     return this.http.get(`${baseUrl}/getCartById/${id}`);
+   }
+   
+   deleteItem(id: any){
+    return this.http.delete(`${baseUrl}/removeItem/${id}`);
+  }
+  
+  createOrder(data: any){
+    //console.log(data);
+     return this.http.post(`${baseUrl}/createOrder`, data);
+   }
+   
+   getOrders(id: any){
+    return this.http.get(`${baseUrl}/getOrders/${id}`);
+  }
 }
